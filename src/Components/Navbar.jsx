@@ -1,8 +1,9 @@
 import React from 'react';
+import Cardwidget from './Cardwidget'
 
 function Navbar(){
     return <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">VOMEA</a>
+        <a class="navbar-brand" href="#">VOMEA</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,9 +25,16 @@ function Navbar(){
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>
         </li>
-      </ul>
+        </ul>
+        <form class="d-flex">
+        <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+         </form>
+      <Cardwidget/>
     </div>
+    
   </nav>
+
 }
 
 export default Navbar;
