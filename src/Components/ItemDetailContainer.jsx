@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
 
-function ItemListContainer({titulo}){
+function ItemDetailContainer({titulo}){
 
     const array= [
                         {
@@ -87,4 +87,4 @@ useEffect(()=>{
         
     
 }
-export default ItemListContainer;
+export default ItemDetailContainer

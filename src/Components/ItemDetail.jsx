@@ -1,6 +1,6 @@
 import React from "react"
 
-function Item ({item}){
+function ItemDetail ({item}){
         return <>
 
 <div class="card-body">
@@ -10,7 +10,7 @@ function Item ({item}){
         <li class="list-group-item">{item.name}</li>
     <li class="list-group-item">Stock:{item.stock}</li>
     <li class="list-group-item">Precio: $ {item.price} </li>
-    <li class="list-group-item">Categoría:{item.category} </li>
+    <li class="list-group-item">Descripcion del producto:{item.description} </li>
         </ul>
             <div class="card-body">
     <a href="#" class="card-link">Card link</a>
@@ -19,4 +19,4 @@ function Item ({item}){
 
         </>
          }
-export default Item;
+export default ItemDetail;
