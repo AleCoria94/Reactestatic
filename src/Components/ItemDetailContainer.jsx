@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
-
-function ItemDetailContainer({titulo}){
+import ItemDetail from './ItemDetail';
+function ItemListContainer({titulo}){
 
     const array= [
                         {
@@ -10,11 +10,11 @@ function ItemDetailContainer({titulo}){
                             stock:4,
                             price:8501,
                             category:"sillas",
-                            img:"https://www.alfaventas.com/imgs/productos/productos34_4271.jpg",
+                            img:"https://disegnimobili.com.ar/wp-content/uploads/2018/03/Tolix.png",
                             description:"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
                         },
                         {
-                            
+
                                 id:2,
                                 name:"Silla Swan",
                                 stock:6,
@@ -22,7 +22,7 @@ function ItemDetailContainer({titulo}){
                                 category:"sillas",
                                 img:"https://www.alfaventas.com/imgs/productos/productos34_4271.jpg",
                                 description:"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
-                            
+
                         },
                         {
                             id:3,
@@ -50,14 +50,32 @@ function ItemDetailContainer({titulo}){
                             category:"sillas",
                             img:"https://www.alfaventas.com/imgs/productos/productos34_4271.jpg",
                             description:"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
-                        }
-    ];
-
-    const [data,setData] = useState(null);
-
+                        },
+                    {
+ 
+                            id:6,
+                            name:"Sillón Arman",
+                            stock:6,
+                            price:18203,
+                            category:"sillas",
+                            img:"https://www.alfaventas.com/imgs/productos/productos34_4271.jpg",
+                            description:"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+                    },
+                    {
+ 
+                        id:7,
+                        name:"Sillón Arman",
+                        stock:6,
+                        price:18203,
+                        category:"sillas",
+                        img:"https://www.alfaventas.com/imgs/productos/productos34_4271.jpg",
+                        description:"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+                }
+ ];
+    const [data,setData] = useState([]);
     let promise = new Promise((resolve,reject) =>{
         setTimeout(()=>{
-            resolve(array);
+            resolve(array[1]);
         },2000);
     });
 
@@ -77,14 +95,13 @@ function ItemDetailContainer({titulo}){
 useEffect(()=>{
             getItem();
         },[]);
-
     return(
         <div className="container-fluid border border-primary">
             <h1>{titulo}</h1>
-            <ItemList items={data}/>
+            <ItemDetail items={data}/>
         </div>
     )
-        
-    
+
+
 }
-export default ItemDetailContainer
+export default ItemListContainer;

@@ -1,22 +1,23 @@
 import React from "react"
+import ItemCount from "./ItemCount"
 
-function ItemDetail ({item}){
+function ItemDetail ({items,stock,initial}){
         return <>
 
-<div class="card-body">
-    <h5 class="card-title">Aquí comienza cada componente</h5>
+<div className="card-body">
+    <h5 className="card-title">Aquí comienza cada componente</h5>
   </div>
-        <ul class="list-group list-group-flush">
-        <li class="list-group-item">{item.name}</li>
-    <li class="list-group-item">Stock:{item.stock}</li>
-    <li class="list-group-item">Precio: $ {item.price} </li>
-    <li class="list-group-item">Descripcion del producto:{item.description} </li>
+        <ul className="list-group list-group-flush">
+        <li className="list-group-item">{items.name}</li>
+    <li className="list-group-item">Stock:{items.stock}</li>
+    <li className="list-group-item">Precio: $ {items.price} </li>
+    <li className="list-group-item">Descripcion del producto:{items.description} </li>
         </ul>
-            <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+            <div className="card-body">
+    <a href="#" className="card-link">Card link</a>
+    <a href="#" className="card-link">Another link</a>
   </div>
-
+    <ItemCount/>
         </>
          }
 export default ItemDetail;
