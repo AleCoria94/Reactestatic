@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
+import './ItemListContainer.css'
 
 function ItemListContainer({titulo}){
 
@@ -75,7 +76,7 @@ useEffect(()=>{
         },[]);
 
     return(
-        <div className="container-fluid border border-primary">
+        <div className="container-fluid">
             <h1>{titulo}</h1>
             <ItemList items={data}/>
         </div>
