@@ -8,9 +8,9 @@ function ItemDetail ({items,stock,initial}){
     <h5 className="card-title">Aquí comienza cada componente</h5>
   </div>
         <ul className="list-group list-group-flush">
-        <li className="list-group-item">{items.name}</li>
+        <h1 className="list-group-item">{items.name}</h1>
     <li className="list-group-item">Stock:{items.stock}</li>
-    <li className="list-group-item">Precio: $ {items.price} </li>
+    <h1 className="list-group-item"> $ {items.price} </h1>
     <li className="list-group-item">Descripcion del producto:{items.description} </li>
         </ul>
             <div className="card-body">

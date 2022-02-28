@@ -10,9 +10,12 @@ function ItemCount ({stock,initial}) {
         contador > 0 ? setContador(contador-1):setContador(contador)
     }    
 return <>
-    <h1>{contador}</h1>
+    <div class="container-fluid">
     <button className="btn btn-primary" onClick={onAdd}>+</button>
+    <h1 className="contador">{contador}</h1>
     <button className="btn btn-primary" onClick={onLess}>-</button>
+</div>
+    
     </>  
 };
 
