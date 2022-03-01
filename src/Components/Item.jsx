@@ -2,6 +2,7 @@ import React from "react"
 import './Item.css'
 
 function Item ({item}){
+
         return <>
 
 <div className="card d-flex justify-content-around">
