@@ -9,11 +9,12 @@ function ItemDetail ({item}){
     let prueba = getItemInCart(3);
     console.log(prueba)
     console.log('Desde el context',quantity)
+
 function onAdd(contador){
      setInCart(true);
      addItem(item, contador);
 }
-
+if(item){
 return <>
      
 <div className="card-body">
@@ -32,5 +33,10 @@ return <>
         
     <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/>
         </>
+        }else{
+            <div>
+                <h3>Estamos tatando de traer los productos</h3>
+            </div>
+        }
          }
 export default ItemDetail;

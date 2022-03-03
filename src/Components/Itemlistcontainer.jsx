@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
+import Spinner from './Spinner';
 import './ItemListContainer.css'
 
 function ItemListContainer({titulo}){
@@ -98,7 +99,7 @@ function ItemListContainer({titulo}){
     ];
 
     const [data,setData] = useState(null);
-
+    const [isLoading,setIsLoading] = useState(true)
     let promise = new Promise((resolve,reject) =>{
         setTimeout(()=>{
             resolve(array);
@@ -117,13 +118,14 @@ function ItemListContainer({titulo}){
     }
 
 useEffect(()=>{
+    
             getItem();
+            setIsLoading(false);
         },[]);
 
     return(
         <div className="container-fluid">
-            <h1>{titulo}</h1>
-            <ItemList items={data}/>
+            {isLoading ? <Spinner/>: <ItemList items={data}/>}
         </div>
     )
         

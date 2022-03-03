@@ -25,16 +25,27 @@ export const CartContextProvider = ({children}) =>{
             })
             return itemInCart;
         }
-        function removeItem(id){
-            let filterCart = itemsInCart.filter((item)=>
-            {
+        function removeItemFromCart(id){
+            if (isInCart(id)){
+                let filterCart = itemsInCart.filter((item)=>{
                 return item.id !== id; 
-            })
+            });
+            setItemsInCart(filterCart);
         }
 
-
+        function clearCart(){
+            setItemsInCart([]);
+        }
+            function countItemsInCart(){
+                let total = 0;
+                itemsInCart.forEach((item)=>{
+                    total += item.qty;
+                })
+                return total;
+            }
+    }
     return (
-    <CartContext.Provider value = { {addItem, getItemInCart, isInCart, quantity: 5, itemsInCart}}>
+    <CartContext.Provider value = { {addItem, getItemInCart, isInCart,clearCart, quantity: 5, itemsInCart}}>
         {children}
         </CartContext.Provider>
     )
