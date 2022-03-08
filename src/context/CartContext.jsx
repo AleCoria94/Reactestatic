@@ -36,7 +36,14 @@ export const CartContextProvider = ({children}) =>{
         function clearCart(){
             setItemsInCart([]);
         }
-            function countItemsInCart(){
+        function countItemsInCart(){
+                let total = 0;
+                itemsInCart.forEach((item)=>{
+                    total += item.qty;
+                })
+                return total;
+            }
+            function clearCart(){
                 let total = 0;
                 itemsInCart.forEach((item)=>{
                     total += item.qty;
@@ -45,7 +52,7 @@ export const CartContextProvider = ({children}) =>{
             }
     }
     return (
-    <CartContext.Provider value = { {addItem, getItemInCart, isInCart,clearCart, quantity: 5, itemsInCart}}>
+    <CartContext.Provider value = { {addItem,countItemsInCart, getItemInCart, isInCart, quantity: 5, itemsInCart}}>
         {children}
         </CartContext.Provider>
     )

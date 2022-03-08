@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import {collection,getDocs} from 'firebase/firestore'
+import db from '../service/firebase'
 import ItemList from './ItemList';
 import Spinner from './Spinner';
 import './ItemListContainer.css'
 
 function ItemListContainer({titulo}){
 
-    const array= [
+    /*const array= [
                         {
                             id:1,
                             name:"Silla Frolic",
@@ -97,31 +99,29 @@ function ItemListContainer({titulo}){
                             description:"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
                         },
     ];
-
+*/
     const [data,setData] = useState(null);
     const [isLoading,setIsLoading] = useState(true)
-    let promise = new Promise((resolve,reject) =>{
+   /* let promise = new Promise((resolve,reject) =>{
         setTimeout(()=>{
             resolve(array);
         },2000);
-    });
+    });*/
 
-    const getItem = async ()=>{
-        try{
-            const data = await promise;
-            setData(data);
-        } catch (error){
-            throw error;
-        } finally {
-            console.log("la peticion se termino")
-        }
+    const getData = async ()=>{
+            const data = collection(db,"items");
+            const col = await getDocs(data)
+            const result = col.docs.map((doc)=>doc={id:doc.id, ... doc.data()})
+            setData(result)
+
     }
 
 useEffect(()=>{
     
-            getItem();
+            getData();
             setIsLoading(false);
         },[]);
+
 
     return(
         <div className="container-fluid">
