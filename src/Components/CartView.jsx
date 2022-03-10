@@ -1,6 +1,7 @@
 import React from 'react'
 import useCartContext from "../context/CartContext"
 import {Link} from 'react-router-dom'
+import CartForm from './CartForm'
 
 function CartView (){
         const {itemsInCart, removeItemFromCart, ClearCart,countItemsInCart} = useCartContext();
@@ -13,7 +14,16 @@ function CartView (){
 
             </div>}else{
                 
-                <h3>Estoy en el false del if</h3>
+                return(
+                    <div className='container'>
+                        <table className='table'>
+
+                        </table>
+                        <button onClick={()=> {alert("la compra fue realizada")}} className="btn btn-success mx-2" >Pagar</button>
+                        <button onclick={ClearCart} className="btn btn-danger">Vaciar Carrito</button>
+                        <CartForm/>
+                    </div>
+                )
             }
         }
 
