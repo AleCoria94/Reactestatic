@@ -1,4 +1,3 @@
-import react from "react";
 import React,{useState} from 'react'
 import useCartContext from "../context/CartContext"
 
@@ -12,12 +11,12 @@ function CartForm () {
     });
 
     function handleInput(evt){
-const target=event.target;
-const value= target.value;
-const name= target.name;
+        const target=evt.target;
+        const value= target.value;
+        const name= target.name;
     
 setBuyer({
-    ...buyer,[nameInp]:value
+    ...buyer,[name]:value
 })
 }
 
@@ -44,8 +43,8 @@ function handleSubmit(event){
                 <label for="email">Nombre y Apellido</label>
                 <input onChange = {handleInput} value={buyer.email} type="text" name="email-name"></input>
             </div>
-            <button className="btn btn-success">Finalizar</button>
-            <button className="btn btn-danger">Cancelar</button>
+            <button onChange = {handleSubmit} className="btn btn-success">Finalizar</button>
+            
         </form>
         
         </div>

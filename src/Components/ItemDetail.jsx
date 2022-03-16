@@ -3,9 +3,10 @@ import ItemCount from "./ItemCount"
 import useCartContext from '../context/CartContext'
 
 function ItemDetail ({item}){
+    console.log(item);
     let[inCart, setInCart] = React.useState(false);
 
-    const {quantity, addItem,isIncart,getItemInCart} = useCartContext();
+    const {quantity, addItem,getItemInCart} = useCartContext();
     let prueba = getItemInCart(3);
     console.log(prueba)
     console.log('Desde el context',quantity)
@@ -21,13 +22,12 @@ return <>
       
     <ul className="list-group list-group-flush">
         <h1 className="list-group-item">{item.name}</h1>
-    <li className="list-group-item">¡Quedan {item.stock} unidad/es disponible/s!</li>
-    <h1 className="list-group-item"> $ {item.price} </h1>
+    <li className="list-group-item">¡Quedan {item.modelo} unidad/es disponible/s!</li>
+    <h1 className="list-group-item"> $ {item.modelo} </h1>
     <li className="list-group-item">Descripcion del producto:{item.description} </li>
         </ul>
             <div className="card-body">
-    <a href="#" className="card-link">Card link</a>
-    <a href="#" className="card-link">Another link</a>
+    
   </div>
   </div>
         

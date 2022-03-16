@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import CartForm from './CartForm'
 
 function CartView (){
-        const {itemsInCart, removeItemFromCart, ClearCart,countItemsInCart} = useCartContext();
+        const {itemsInCart, ClearCart} = useCartContext();
             //falta table//
         if (itemsInCart.length === 0){
             <div className='container'>
